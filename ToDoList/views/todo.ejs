@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <title>Todo App</title>
+    
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" 
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- BootStrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>To-Do List</h1>
+            <hr>
+            
+            <!-- GET -->
+            <div class="card" style="width: 18rem;margin-bottom: 5%;">
+                <ul class="list-group">
+                    <% todoTasks.forEach(details => { %>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <%= details.content %>
+                            <span>
+                                <a href="/remove/<%= details._id %>">
+                                    <i class="fas fa-trash float-right"></i>
+                                </a>
+                            </span>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- POST -->
+            <div class="form-group row" style="margin-left:20%;margin-right:20%;">
+                <div class="col-xs-2">
+                    <form action="/" method="POST" class="todo-header">
+                        <input class="form-control" type="text" input type="text" name="content" style="margin-bottom: 3%;">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </center>
+    </div>
+</body>
